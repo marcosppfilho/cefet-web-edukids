@@ -11,43 +11,38 @@
  *   - perturbado: animal fica pulsando
  *   - instinto-selvagem: animal dá um salto e cresce, com uma borda vermelha
  */
-.agitado { position: relative;
-    -webkit-animation: piscando 1s ease-in-out 0 infinite alternate;}
+.agitado { animation: opacidade 1s ease-in-out 0s infinite alternate;}
 .agitado img { }
 
 
-.alimentado {border-color:green;
-    -webkit-animation: rodando 1s ease-in-out 0 infinite alternate;}
-.alimentado img {}
+.alimentado {animation: roda .5s linear 0s 2 normal;}
+.alimentado img {border-color: green;}
 
-.perturbado {-webkit-animation: pulsando 0.25s ease-in-out 0 infinite alternate; }
+.perturbado {animation: pulsando .1s ease-in-out 0s infinite alternate; }
 .perturbado img {}
 
-.instinto-selvagem {border-color:red;
-    -webkit-animation: cresce 0.75s ease-in-out 0 infinite alternate;}
-.instinto-selvagem img { }
-
-@-webkit-keyframes piscando {
-  from { opacity: 1;     }
-  to   { opacity: 0.5; }
+.instinto-selvagem {animation: salto .5s ease-in-out 0s infinite alternate;}
+.instinto-selvagem img {border-color: red; }
+@keyframes opacidade {
+  from { opacity: 0.7; }
+  to   { opacity: 1; }
 }
-
-@-webkit-keyframes rodando {
-  from { transform: rotate(0deg)     }
-  to   { transform: rotate(360deg) }
+@keyframes roda {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
-
-@-webkit-keyframes pulsando {
-  from { transform: scale(1,1)    }
-  to   { transform: scale(1.2,1.2) }
+@keyframes pulsando {
+  from { transform: scale(1, 1); }
+  to   { transform: scale(1.4, 1.4); }
 }
-
-@-webkit-keyframes cresce {
-  from { top:0px;transform: scale(1,1)    }
-  to   { top:-100px;transform: scale(1.5,1.5) }
+@keyframes salto {
+  from { 
+    transform: translateY(0px) scale(1, 1);
+  }
+  to   { 
+    transform: translateY(-100px) scale(1.2, 1.2);
+  }
 }
-
-
 
 /*
  * Exercício 3: Criar uma imagem sprite com as imagens dos botões de controle
