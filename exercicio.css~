@@ -1,7 +1,7 @@
 /* Exercício 1: Criar uma transição para quando o mouse estiver em cima dos
  * botões play/stop (para que o elemento se revele lentamente)
  */
- #controles ul { transition: 900ms linear;}
+ #controles ul { transition: 1000ms linear;}
 
 /*
  * Exercício 2: Você deve implementar uma metáfora visual para cada um dos 4
@@ -11,38 +11,73 @@
  *   - perturbado: animal fica pulsando
  *   - instinto-selvagem: animal dá um salto e cresce, com uma borda vermelha
  */
-.agitado { animation: opacidade 1s ease-in-out 0s infinite alternate;}
+.agitado { 
+    animation-name: agitado;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    -webkit-animation-name: agitado; 
+    -webkit-animation-duration: 2s; 
+    -webkit-animation-iteration-count: infinite; 
+}
 .agitado img { }
 
 
-.alimentado {animation: roda .5s linear 0s 2 normal;}
-.alimentado img {border-color: green;}
+.alimentado {  animation-name: alimentado;
+    animation-duration: 1.2s;
+    animation-iteration-count: infinite;
+    -webkit-animation-name: alimentado; 
+    -webkit-animation-duration: 1.2s; 
+    -webkit-animation-iteration-count: infinite; 
+    border: 3px solid green;
+    border-radius: 130px
+}
+.alimentado img {}
 
-.perturbado {animation: pulsando .1s ease-in-out 0s infinite alternate; }
+.perturbado {
+animation-name: perturbado;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    -webkit-animation-name: perturbado; 
+    -webkit-animation-duration: 1s; 
+    -webkit-animation-iteration-count: infinite; 
+ }
 .perturbado img {}
 
-.instinto-selvagem {animation: salto .5s ease-in-out 0s infinite alternate;}
-.instinto-selvagem img {border-color: red; }
-@keyframes opacidade {
-  from { opacity: 0.7; }
-  to   { opacity: 1; }
+.instinto-selvagem {
+    animation-name: instinto-selvagem;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    -webkit-animation-name: instinto-selvagem; 
+    -webkit-animation-duration: 1s; 
+    -webkit-animation-iteration-count: infinite; 
+    border: 3px solid red;
+    border-radius: 130px;
 }
-@keyframes roda {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+.instinto-selvagem img { }
+
+@keyframes agitado {
+    0%   {opacity: 0;}
+    50%   {opacity: 0.9;}
+    100%   {opacity: 0;}
 }
-@keyframes pulsando {
-  from { transform: scale(1, 1); }
-  to   { transform: scale(1.4, 1.4); }
+
+@keyframes alimentado {
+    0%   {transform: rotate(0deg);-webkit-transform: rotate(0deg);}
+    100%   {transform: rotate(360deg);-webkit-transform: rotate(360deg);}
 }
-@keyframes salto {
-  from { 
-    transform: translateY(0px) scale(1, 1);
-  }
-  to   { 
-    transform: translateY(-100px) scale(1.2, 1.2);
-  }
+
+@keyframes perturbado {
+    0%   {transform:scale(1,1);}
+    50%   {transform:scale(1.2,1.2);}
+    100%   {transform:scale(1,1);}
 }
+
+@keyframes instinto-selvagem {
+    0%   {transform:translate(0px,0px);}
+    50%   {transform:translate(0px,-120px);}
+    100%   {transform:scale(0px,0px);}
+}
+
 
 /*
  * Exercício 3: Criar uma imagem sprite com as imagens dos botões de controle
@@ -53,10 +88,14 @@
  */
 
 .comecar,
-.parar {width: 24px;
+.parar {
+   width: 24px;
    height: 24px;
-   background-image: url('imgs/sprite-controles.png');}
+   background-image: url('imgs/sprite-controles.png');
+}
 
-.comecar {background-position: 0 0;}
+.comecar {
+background-position: 0 0;
+}
 
 .parar {background-position: 0 24px;}
